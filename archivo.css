@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: font-family: 'Source Sans 3', sans-serif;
+	text-decoration: none;
+}
+.logonoticia{
+	width: 105px;
+	height: 140px;
+}
+
+header{
+	width: 100%;
+	position: fixed;/*encima de todo pegado*/
+	top: 0;
+	left: 0;
+	background: #b2f7fa;
+}
+/*Header Superior*/
+
+.header--superior{
+	max-width: 1200px; /*el ancho maximo*/
+	margin: auto; /*se centra automaticamente*/
+	display: flex;  /*el buscador se acomoda del lado derecho*/
+	align-items: center; /*lo centra horizontal*/
+	justify-content: space-between; /*el logo se del lado izquiedo*/
+	padding: 10px;/*ajusta la barra del menu hacia abajo para que no toque la parte superior*/
+}
+
+.logo img{
+	width: 100px;
+
+}
+.search button{
+background-color: #bababa;
+
+}
+
+/*Barra menu*/
+.container--menu{/*Linea del menu*/
+	width: 100%; /* ancho */
+	height: 70px;
+	background: #6dace3;
+	padding: 0px 20px; /* arriba abajo izquierda derecha*/
+}
+
+.menu{
+	max-width: 1200px;
+	margin: auto;
+	height: 100%;
+}
+
+nav{
+	height: 100%;
+}
+
+/*esto hace que el menu y el sub menu tengan distintas caracteristicas >*/
+
+nav > ul{ 
+	height: 100%;
+	display: flex; /* los li se pongan uno alado de otro*/
+}
+
+nav  ul  li {
+	height: 100%; /*tiene 100% para que se posiciones en el mismo lugar*/
+	list-style: none; /*elimina los puntos los del submenu no se eliminan por los >*/
+	position: relative; /*controlar la posicion donde va el menu se relaciona con categoria*/
+
+}
+
+nav > ul > li:first-child > a{
+background-image: url(multimedia/casa.png);
+background-size: 24px;
+background-repeat: no-repeat; /*hacen lo mismo que el siguiente de abajo*/
+background-position: center center; 
+padding: 20px 40px; 
+}
+
+nav > ul > li:first-child:hover > a{ /*hace que el icono se mantenga al pasar el raton*/
+background-image: url(multimedia/casa.png);/*imagen del icono*/
+background-size: 24px;
+background-repeat: no-repeat;/*hace que el icono no se repita muchas veces*/
+background-position: center center; /*centra el icono*/
+padding: 20px 40px; /*acomoda el tamano del icono*/
+}
+
+nav > ul > li > a {/*Son las letras de la barra de color*/
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center; /*posiciona a todos en el mismo lugar*/
+	padding: 14px; /*espacio entre las palabras*/
+	color: #000000; 
+	text-transform: uppercase; /*pone las letras en mayusculas*/
+	font-size: 14px;
+	transition: all 300ms ease; /* es para el efecto de lo que pasa cuando pones el maus*/
+}
+
+nav > ul > li > a:hover {/* hover el efecto al tocar el boton*/
+	transform: scale(1.1);/*hace que cresca un poco las letras*/
+	background: #b2f7fa;/*color en el hover*/
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /*Es la sombra de fondo*/
+}
+
+#selected{ /*Este es el menu de la casita*/
+	transform: scale(1);
+	background-color: #80CEE1;/*para que solo el fondo sea de color azul sin el -color solo se veria el color*/
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+/*submenu*/
+nav ul li ul{ /*Es la columna donde salen los submenus */
+	width: 200px;
+	display: flex;
+	flex-direction: column; /*para que el texto este uno debajo de otro*/
+	background: #80CEE1;
+	position: absolute;
+	top: 90px;
+	left: -5px;
+	padding: 14px 0px;
+	visibility: hidden; /*hace que este oculto*/
+	opacity: 0;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+	z-index: 10; /*para que se mantenga arriba*/
+	transition: all 300ms ease; /*es la animacion */
+}
+
+nav ul li:hover ul{
+	visibility: visible;/*hace que el submenu sea visible*/
+	opacity: 1;
+	top: 70px;
+}
+
+nav ul li ul:before{/*es un elemento para que se adapte el triangulo que senala*/
+	content: '';/*es el contenido*/
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;/*es el recorte del borde*/
+	border-right: 12px solid transparent;
+	border-bottom: 12px solid #80CEE1;/*Es el triangulo*/
+	position: absolute;
+	top: -12px;/*es el desplazamiento*/
+	left: 20px;
+}
+
+nav ul li ul li a{/*submenu letras*/
+	display: block;/*lo convierte en bloque*/
+	color: white;
+	padding: 6px;/*separa los enlaces*/
+	padding-left: 14px;/*hace que se dezplace hacia la derecha*/
+	margin-top: 10px; /*hace que se separe hacia abajo*/
+	font-size: 14px;
+	text-transform: uppercase; /*para que se pongan en mayusculas*/
+	transition: all 30ms ease;
+}
+
+nav ul li ul li a:hover{/*enlaces de los submenu*/
+	background: #80CEE1;/*efecto hover de pasar el raton*/
+	color: #fff;
+	transform: scale(1.1);
+	padding-left: 30px;
+	font-size: 14px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+
+main{
+	background: #66c4c087;
+	padding: 1px 20px;
+	margin-top: 230px;
+}
+
+article{
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 30px;
+	background: #fff;
+}
+
+article p{
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: 300px;
+}
+
+/*Elementos responsivos da funcionalidad al icono que saca los menus*/
+.icon--menu{ /*Es el que abre el menu cuando la pagina se hace pequena*/
+	font-size: 26px;
+	color: white;
+	cursor: pointer;
+	width: 26px;
+	height: 100%;
+	display: none;
+	align-items: center;
+}
+
+#label--check{
+	width: 26px;
+	height: 100%;
+	display: none;
+}
+
+#check--menu{
+	display: none;
+}
+
+.Cerrarsesion{
+	padding-left: 30px;
+}
+
+@media screen and (max-width: 720px){ /*hace que ocurra una accion cuando la pagina se haga pequena y llegue a ese tamano*/
+	.search input{
+		display: none; /*cuando se haga pequena la pagina desaparece el buscador(input)*/
+	}
+	.header--superior{
+		padding: 22px;
+	}
+	
+	.logo img{
+		width: 90px;
+		height: 125px;
+	}
+	nav > ul{
+		flex-direction: column;
+		background-color: #6dace3;
+		position: fixed;
+		left: 0;
+		top: 158px;
+		width: 100%;
+		height: 0px;
+		transition: all 300ms ease;/*hace la animacion*/
+		z-index: 100;/*hace que se muestre encima de todo*/
+		opacity: 0; /*para que no se muestre*/
+		visibility: hidden;
+	}
+
+	nav > ul > li > a:hover{
+		transform: scale(1);
+	}
+
+	nav ul li ul{
+		left: 90px;/*cambia el lugar del submenu ala derecha*/
+	}
+	nav > ul > li:hover ul{
+		top: 50px;/*para acomodar y se sepa que es de categorias*/
+	}
+
+	nav > ul > li:first-child a {/*cambia la posision del logo*/
+		background-position: 20px
+
+	}
+	#selected{
+		transform: scale(1);/*hace que se cambia el icono de lugar */
+	}
+	#label--check{
+		display: block;
+	}
+
+	.icon--menu{
+		display: flex;
+	}
+
+	#check--menu:checked ~ nav > ul{
+		height: 300px;
+		visibility: visible;
+		opacity: 1;
+	}
+	main{
+		margin-top: 260px;
+	}
+
+}
+
+/*Esto es del reloj*/
+
+.wrap {
+	padding: 5px;
+	padding-top: 0px;
+}
+
+.widget p{
+	display: inline-block; /*hace que se junten en la misma linea*/
+}
+
+.segundos{
+	font-size: 0;
+}
+
+/*Termina el reloj*/
+
+.texto{
+	font-size: 30;
+}
