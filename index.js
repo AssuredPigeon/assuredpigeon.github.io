@@ -1,4 +1,20 @@
+<?php
 
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+	echo "
+
+	<script>
+	alert('Debes iniciar sesion');
+	</script>
+	";
+	header("location: login-registro/login-registro.php");
+	session_destroy();
+	die();
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
