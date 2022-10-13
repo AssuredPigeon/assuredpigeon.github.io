@@ -2,6 +2,6 @@
 
 session_start();
 session_destroy();
-header("location: login-registro.php");
+header("location: login-registro.js");
 
 ?>
